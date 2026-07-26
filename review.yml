@@ -1,0 +1,393 @@
+aid: zolo
+name: Zolo
+review:
+  question: Does Zolo publish a public, documented API — and what is its RESO posture?
+  answer: false
+  date: '2026-07-26'
+  reviewer: API Evangelist
+  homeMarket: Canada
+  tier: portal-marketplace
+
+sectorPosture:
+  homeMarket: Canada
+  resoPosture: >-
+    No RESO reference found. Zolo is not RESO-certified and is not a RESO member.
+    RESO's own Canadian Membership page (https://www.reso.org/canadian-membership/,
+    HTTP 200, fetched 2026-07-26) enumerates nineteen Canadian member organizations —
+    The Canadian Real Estate Association | L'Association canadienne de l'immobilier,
+    Centris, Clientime, Falcon Technologies Corporation, Listed, Local Logic, Multi
+    List Platform Limited Partnership, Municipal Property Assessment Corporation
+    (MPAC), Origin Confirmed Ltd, Phoenix Software, Planitar, PropTexx, Prospects
+    Software, REALTORS® Association of Edmonton, Real Estate Board of Greater
+    Vancouver, Saskatchewan REALTORS® Association, Templates 4 Business, Victoria Real
+    Estate Board, and Winnipeg Regional Real Estate Board — and neither Zolo, Zolo
+    Realty, nor Zolo Ventures appears among them. No RESO Web API certification, no
+    Data Dictionary certification (therefore no version), no RESO certification
+    directory entry, no Reso/OData endpoint, no $metadata document, and no Universal
+    Property Identifier (UPI) usage was observed on any Zolo host. This is the
+    expected and honest Canadian answer: RESO certification is a US industry mandate
+    driven by NAR, while Canadian residential listings flow through CREA's national
+    REALTOR.ca Data Distribution Facility (DDF) and individual board MLS® Systems.
+    Zolo's own robots.txt carries the trace of that arrangement — it disallows
+    /crea_accept.php, the CREA terms-acceptance route a consumer must pass through.
+  resoCertified: false
+  resoCertificationType: none
+  resoDataDictionaryVersion: null
+  resoDirectoryEvidence: >-
+    RESO publishes three certifications — Web API Core 2.0.0, Data Dictionary 2.0, and
+    RESO Common Format (RCF) — per https://www.reso.org/certification/ (HTTP 200,
+    2026-07-26), which points at https://www.reso.org/certificates/ for the certified
+    organizations directory. That directory was fetched (HTTP 200, 2026-07-26) and
+    contains only US-based MLSs, associations and boards; no Canadian organization
+    appears, and Zolo does not appear. https://certification.reso.org/ and its
+    sub-paths /organizations, /api/organizations and /data/organizations.json each
+    returned HTTP 400 with a zero-length body anonymously, so negative evidence rests
+    on the two reachable RESO pages plus the Canadian membership roster.
+  accessGate: none-published
+  accessGateDetail: >-
+    For a developer there is nothing to sign up for, apply to, or join, because nothing
+    is on offer: no developer portal, no API program page, no partner page, no
+    data-licensing page, no application form, no API terms, and no key issuance. That
+    is why the gate is recorded as none-published rather than as an approval or
+    partner path. Beneath the absent developer surface, however, the data itself is
+    gated by an explicit licence agreement that even an ordinary human user must
+    accept. Section 23 of Zolo's Terms of Use (https://www.zolo.ca/legal-terms) is a
+    Virtual Office Website (VOW) clause. It requires the user to register an account,
+    to warrant "a bona fide interest in the purchase, sale, or lease of real estate of
+    the type being offered through Zolo", and to use the data only for personal
+    non-commercial purposes. It states verbatim: "You will not, directly or
+    indirectly, display, post, disseminate, distribute, publish, broadcast, transfer,
+    sell or sublicense any data obtained through the VOW to another individual or
+    entity. The prohibited uses expressly include 'scraping' (including 'screen
+    scraping' and 'database scraping'), 'data mining' or any other activity intended
+    to collect, store, re-organize, summarize or manipulate the data." It further
+    provides: "You expressly authorize the Real Estate Boards or their duly authorized
+    representatives, to access your information provided to Zolo Ventures, for the
+    purposes of verifying compliance with and pursuing enforcement of these Terms of
+    Use". A separate general prohibition bans use of "any data mining, robots, or
+    similar data gathering or extraction methods" and use of Zolo "for the purpose of
+    building a similar or competitive" service. The clause names the specific
+    proprietors whose rights bind the user: CREA (owner of the REALTOR® and MLS®
+    marks), the Toronto Regional Real Estate Board (TRREB), Information Technology
+    Systems Ontario (ITSO), the Real Estate Board of Greater Vancouver (REBGV), Alberta
+    One Realty Listing Services Inc. (Pillar9), and the Ottawa Real Estate Board
+    (OREB). Upstream of that, Zolo receives the data as a licensed brokerage with
+    board/MLS membership through Zolo Realty (Ontario/Alberta/British
+    Columbia/Saskatchewan/Manitoba/Quebec) Inc. — a corporate membership posture, not a
+    developer onboarding path. A third party wanting this data must become a member
+    brokerage or go to CREA's DDF, not to Zolo.
+  openData: false
+  openDataDetail: >-
+    No open, unlicensed, publicly callable Zolo dataset exists. Zolo's robots.txt
+    declares an RSS new-listings syndication feed at
+    https://www.zolo.ca/rss_new_listings.php as a sitemap; its content was confirmed
+    real via an Internet Archive snapshot (RSS 2.0, channel title "Zolo", description
+    "A Canadian Real Estate Marketplace", items carrying address, price, bed/bath, and
+    MLS® number such as X13492200 and N13492198), but the live URL returns HTTP 403 to
+    any plain HTTP client behind Cloudflare's bot challenge, and it carries no terms,
+    no documentation, no versioning and no key issuance — it is an SEO/syndication
+    aid, not a data product, and the MLS® numbers in it confirm the payload is
+    board-licensed listing data. The other declared sitemaps
+    (site_map_index_https.php, xmlsitemap-index/listings.xml, cities.xml,
+    neighbourhoods.xml, content.xml, blog/sitemap_index.xml) are crawl indexes of HTML
+    pages. Canada publishes no national counterpart to HM Land Registry Price Paid or
+    Ordnance Survey open data; provincial land registration is largely privatised, with
+    Teranet operating Ontario's registry under long concession, so even the public
+    record is a commercial product in this market.
+  authModel: >-
+    None published for developers. No API key programme, no OAuth 2.0 or OpenID Connect
+    developer flow, no SAML member portal, and no documented token issuance of any
+    kind. https://www.zolo.ca/.well-known/openid-configuration returns HTTP 403 behind
+    the Cloudflare challenge, and the Internet Archive CDX index shows every
+    /.well-known/ probe against zolo.ca (openid-configuration, security.txt, trust.txt,
+    ai-plugin.json, assetlinks.json, gpc.json, nodeinfo, dnt-policy.txt) resolving only
+    as HTTP 301 apex-to-www redirects — no discovery document has ever been served.
+    Human authentication is ordinary session-based account sign-in
+    (https://www.zolo.ca/sign_out.php and /account are both robots-disallowed), layered
+    with the board-mandated VOW registration and the CREA terms acceptance step at
+    /crea_accept.php. Machine access is not authenticated so much as actively blocked:
+    the edge answers non-browser clients with HTTP 403 and the header
+    "cf-mitigated: challenge".
+  webhooksEventsSdksPostman: >-
+    None found; the absence is the finding. No webhook or event documentation, no
+    published SDK, no CLI, no Postman workspace or collection. There is no Zolo GitHub
+    organization that could be verified — https://github.com/zolo (HTTP 200) is a
+    different company whose declared blog is zolo.io, and https://github.com/zolocanada
+    (HTTP 200) is an empty organization with zero public repositories and no name,
+    description, blog or location set, so neither is attributed to Zolo in apis.yml.
+    Zolo does ship native mobile apps (Apple App Store and Google Play, both governed
+    by Section 24 of the Terms of Use), but their backend is undocumented and no
+    contract is published for it.
+  productApiFamily: >-
+    Represented faithfully, Zolo has product surfaces but no API family. Zolo's own
+    segmentation of its offerings is: Buy (map and city listing search across BC, AB,
+    SK and ON); Sell, including "Sell with Zolo" and a "How Much is My Home Worth?"
+    home-value tool; Rent; Finance, delivered through Zolo Mortgages Ltd. and Zolo
+    Mortgages (Alberta) Ltd. alongside sibling Questrade entity QuestMortgage®; saved
+    items, saved searches and saved homes for registered users; agent and office
+    directories; a conveyancing department operating from the Toronto head office; and
+    a WordPress market-analysis blog. Not one of these is offered as a callable,
+    documented API.
+  corporateStructure: >-
+    Zolo Ventures Ltd. is part of the Questrade Group of Companies (Questrade Financial
+    Group Inc.), whose other members include Questrade, Inc., Questrade Wealth
+    Management Inc., QuestEnterprise Inc., QuestGlobal Inc., Community Trust Company
+    and Think!nsure Ltd. Zolo Ventures' own subsidiaries, named in its Privacy &
+    Security Centre, are Zolo Realty (Ontario) Inc., Zolo Realty (Alberta) Inc., Zolo
+    Realty (British Columbia) Inc., Zolo Realty (Saskatchewan) Inc., Zolo Realty
+    (Manitoba) Inc., Zolo Realty (Quebec) Inc., Zolo Mortgages Ltd. and Zolo Mortgages
+    (Alberta) Ltd.
+  coverage: >-
+    British Columbia, Alberta, Saskatchewan and Ontario per Zolo's own About page Key
+    Facts (Founded 2012; Areas Serviced BC, AB, SK, ON; 750+ Active Realtors; over 10M
+    visitors each month; $1.5B+ annual volume). Offices listed in the site footer
+    include Toronto (head office, 1900-5700 Yonge Street, M2N 4K2), London ON, Ottawa,
+    Kitchener-Waterloo, Windsor, Peterborough/Kawartha Lakes, Vancouver, Victoria and
+    Kelowna.
+
+findings:
+  summary: |
+    Zolo is a closed platform with a substantial consumer product and no developer
+    surface whatsoever. Every conventional developer entry point was probed on
+    2026-07-26. The subdomains api., developer., developers., docs., data. and
+    partners.zolo.ca do not resolve in DNS (NXDOMAIN, no A record). Every path on
+    www.zolo.ca — /, /developers, /api, /docs, /api-docs, /openapi.json, /openapi.yaml,
+    /swagger, /swagger.json, /graphql, /odata, /$metadata, /v1, /llms.txt, /robots.txt
+    and /.well-known/* — returns HTTP 403 from Cloudflare with the response header
+    "cf-mitigated: challenge", meaning a non-browser client is refused at the edge
+    before any application response. The one exception is
+    https://www.zolo.ca/blog/feed/, which returns HTTP 200 with content-type
+    application/rss+xml (8,557 bytes, 10 items) — a WordPress blog feed, recorded as
+    BlogRSS, not an API. Because the live edge blocks programmatic clients, the site's
+    own robots.txt and Terms of Use were read from Internet Archive snapshots, and both
+    are decisive: robots.txt declares an RSS new-listings feed and a /crea_accept.php
+    CREA terms-acceptance route, and Terms of Use Section 23 is a full Virtual Office
+    Website clause binding users to CREA, TRREB, ITSO, REBGV, Pillar9 and OREB
+    proprietary rights and expressly banning scraping, data mining and redistribution.
+    An Internet Archive CDX sweep of the whole zolo.ca URL space found no /api,
+    /developer(s), /swagger, /openapi, /reso or /odata path ever archived — the only
+    /docs hits are two PDFs (docs/privacy-notice-and-consent.pdf and docs/wwar.pdf).
+    No OpenAPI, no Swagger, no OData $metadata, no AsyncAPI, no GraphQL schema, no
+    Postman collection and no SDK exists. RESO is absent, which is the correct Canadian
+    answer. The important separation for this sector is easy to state here: Zolo is
+    neither certified nor reachable — certification never happened, and access to the
+    data is governed by a licence agreement (the VOW terms) that explicitly forbids the
+    machine access a developer would want.
+  developerPortal: none
+  developerPortalConfirmed: false
+  openapiHarvested: false
+  specsCount: 0
+  gated: true
+  gateType: none-published
+  botMitigation: >-
+    www.zolo.ca is fronted by Cloudflare and returns HTTP 403 with "cf-mitigated:
+    challenge", "server: cloudflare", a challenge-scoped CSP and accept-ch/critical-ch
+    client-hint headers to any non-browser user agent, including browser-identical UA
+    and Accept headers. This is a deliberate anti-automation posture and is itself part
+    of the access finding: Zolo does not merely omit an API, it blocks programmatic
+    HTTP clients at the edge.
+
+probes:
+  - url: https://www.zolo.ca/
+    status: 403
+    note: >-
+      Cloudflare bot challenge. Headers include cf-mitigated: challenge, server:
+      cloudflare, cf-ray a216fa304a803d64-EWR. Identical result with browser UA,
+      Accept, Accept-Language and Accept-Encoding headers.
+  - url: https://zolo.ca/
+    status: 403
+    note: Apex redirects to https://www.zolo.ca/ and is then challenged (403).
+  - url: https://api.zolo.ca/
+    status: 000
+    note: DNS does not resolve — NXDOMAIN / no A record.
+  - url: https://developer.zolo.ca/
+    status: 000
+    note: DNS does not resolve — NXDOMAIN / no A record.
+  - url: https://developers.zolo.ca/
+    status: 000
+    note: DNS does not resolve — NXDOMAIN / no A record.
+  - url: https://docs.zolo.ca/
+    status: 000
+    note: DNS does not resolve — NXDOMAIN / no A record.
+  - url: https://data.zolo.ca/
+    status: 000
+    note: DNS does not resolve — NXDOMAIN / no A record.
+  - url: https://partners.zolo.ca/
+    status: 000
+    note: DNS does not resolve — NXDOMAIN / no A record.
+  - url: https://www.zolo.ca/developers
+    status: 403
+    note: Cloudflare challenge. No developer portal is archived at this path either.
+  - url: https://www.zolo.ca/api
+    status: 403
+    note: Cloudflare challenge. No /api path has ever been archived on zolo.ca.
+  - url: https://www.zolo.ca/docs
+    status: 403
+    note: >-
+      Cloudflare challenge. Archive CDX shows /docs is used only for static PDFs
+      (docs/privacy-notice-and-consent.pdf, docs/wwar.pdf), not documentation.
+  - url: https://www.zolo.ca/api-docs
+    status: 403
+    note: Cloudflare challenge; never archived.
+  - url: https://www.zolo.ca/openapi.json
+    status: 403
+    note: Cloudflare challenge; never archived. No OpenAPI document exists.
+  - url: https://www.zolo.ca/openapi.yaml
+    status: 403
+    note: Cloudflare challenge; never archived.
+  - url: https://www.zolo.ca/swagger.json
+    status: 403
+    note: Cloudflare challenge; never archived.
+  - url: https://www.zolo.ca/swagger
+    status: 403
+    note: Cloudflare challenge; never archived.
+  - url: https://www.zolo.ca/graphql
+    status: 403
+    note: Cloudflare challenge. No GraphQL schema or endpoint documented.
+  - url: https://www.zolo.ca/odata
+    status: 403
+    note: Cloudflare challenge. Zolo is not an OData service.
+  - url: https://www.zolo.ca/$metadata
+    status: 403
+    note: >-
+      Probed URL-encoded as /%24metadata. Cloudflare challenge. No OData $metadata
+      document exists — the RESO machine-readable contract form is entirely absent.
+  - url: https://www.zolo.ca/v1
+    status: 403
+    note: Cloudflare challenge; no versioned API root.
+  - url: https://www.zolo.ca/llms.txt
+    status: 403
+    note: Cloudflare challenge; no agent-facing descriptor.
+  - url: https://www.zolo.ca/.well-known/openid-configuration
+    status: 403
+    note: >-
+      Cloudflare challenge live. Internet Archive shows only a 301 apex redirect for
+      this path (20230627102217) — no OpenID Connect discovery document has been served.
+  - url: https://www.zolo.ca/.well-known/security.txt
+    status: 403
+    note: Live challenge; archive shows only a 301 apex redirect (20230627102212).
+  - url: https://www.zolo.ca/.well-known/ai-plugin.json
+    status: 403
+    note: Live challenge; archive shows only a 301 apex redirect (20230627102212).
+  - url: https://www.zolo.ca/robots.txt
+    status: 403
+    note: >-
+      Live challenge. Content read from Internet Archive. Disallows /account,
+      /crea_accept.php, /gallery_map_json.php, /map-search?, /mortgages, /sign_out.php,
+      /index.php and *?*sarea; blocks YandexBot, Baiduspider, trovitBot and Sogou
+      entirely. Declares sitemaps: rss_new_listings.php, site_map_index_https.php,
+      blog/sitemap_index.xml, xmlsitemap-index/listings.xml, cities.xml,
+      neighbourhoods.xml, content.xml.
+  - url: https://www.zolo.ca/rss_new_listings.php
+    status: 403
+    note: >-
+      Live challenge. Verified via Internet Archive as a real RSS 2.0 feed (channel
+      title "Zolo", description "A Canadian Real Estate Marketplace") whose items carry
+      address, city, price, bed/bath, square footage and MLS® number. Undocumented, no
+      terms, no versioning, not callable by a plain HTTP client. Not listed in apis.yml
+      as an API.
+  - url: https://www.zolo.ca/blog/feed/
+    status: 200
+    note: >-
+      The only live 200 found. content-type application/rss+xml; charset=UTF-8, 8,557
+      bytes, 10 <item> entries, WordPress-backed. Recorded as BlogRSS in apis.yml.
+  - url: https://www.zolo.ca/blog
+    status: 403
+    note: HTML blog is challenged to non-browser clients, though the feed above proves it is live.
+  - url: https://www.zolo.ca/legal
+    status: 403
+    note: >-
+      Live challenge. Read via Internet Archive — the Privacy & Security Centre naming
+      Questrade Financial Group Inc. and every Zolo Ventures subsidiary.
+  - url: https://www.zolo.ca/legal-terms
+    status: 403
+    note: >-
+      Live challenge. Read via Internet Archive (119,452 bytes). Contains Section 23
+      Virtual Office Website, the anti-scraping/data-mining prohibitions, and the
+      CREA/TRREB/ITSO/REBGV/Pillar9/OREB proprietary-rights acknowledgements.
+  - url: https://www.zolo.ca/about.php
+    status: 403
+    note: >-
+      Live challenge. Read via Internet Archive — Key Facts: Founded 2012; Areas
+      Serviced BC, AB, SK, ON; 750+ Active Realtors; over 10M visitors monthly; $1.5B+
+      annual volume.
+  - url: https://www.reso.org/certification/
+    status: 200
+    note: >-
+      RESO certifies Web API Core 2.0.0, Data Dictionary 2.0 and RESO Common Format;
+      links the certified-organizations directory at https://www.reso.org/certificates/.
+  - url: https://www.reso.org/certificates/
+    status: 200
+    note: Certified organizations directory. US MLSs/associations only; no Canadian entry, no Zolo.
+  - url: https://www.reso.org/canadian-membership/
+    status: 200
+    note: RESO's Canadian member roster — nineteen organizations, Zolo absent.
+  - url: https://certification.reso.org/
+    status: 400
+    note: Returns HTTP 400 with a zero-length body anonymously.
+  - url: https://certification.reso.org/organizations
+    status: 400
+    note: HTTP 400, zero-length body.
+  - url: https://certification.reso.org/api/organizations
+    status: 400
+    note: HTTP 400, zero-length body.
+  - url: https://certification.reso.org/data/organizations.json
+    status: 400
+    note: HTTP 400, zero-length body.
+  - url: https://github.com/zolo
+    status: 200
+    note: >-
+      Different company — org "Zolo" with blog zolo.io, 1 public repo. Not Zolo Canada.
+      Deliberately NOT recorded in apis.yml.
+  - url: https://api.github.com/orgs/zolocanada
+    status: 200
+    note: >-
+      Empty organization — 0 public repos, no name, description, blog or location.
+      Cannot be attributed to Zolo Ventures Ltd., so not recorded in apis.yml.
+  - url: https://www.linkedin.com/company/zolocanada
+    status: 200
+    note: Zolo Canada company profile. Recorded in apis.yml common.
+
+sources:
+  - url: https://www.zolo.ca/legal-terms
+    type: TermsOfService
+    note: >-
+      Primary evidence for the access gate. Section 23 Virtual Office Website; verbatim
+      prohibition on scraping, screen scraping, database scraping and data mining;
+      board proprietary-rights acknowledgements for CREA, TRREB, ITSO, REBGV, Pillar9
+      and OREB. Retrieved via Internet Archive because the live URL is Cloudflare-challenged.
+  - url: https://www.zolo.ca/legal
+    type: PrivacyPolicy
+    note: >-
+      Privacy & Security Centre. Establishes Questrade Financial Group ownership and
+      enumerates every Zolo Ventures subsidiary. Retrieved via Internet Archive.
+  - url: https://www.zolo.ca/robots.txt
+    type: Documentation
+    note: >-
+      Declares the rss_new_listings.php syndication feed and the /crea_accept.php CREA
+      terms-acceptance route. Retrieved via Internet Archive.
+  - url: https://www.zolo.ca/about.php
+    type: Documentation
+    note: Founded 2012; BC/AB/SK/ON coverage; scale figures. Retrieved via Internet Archive.
+  - url: https://www.reso.org/canadian-membership/
+    type: Documentation
+    note: RESO's own list of Canadian members; Zolo is not on it.
+  - url: https://www.reso.org/certificates/
+    type: Documentation
+    note: RESO certified-organizations directory; no Canadian organizations at all.
+  - url: https://www.zolo.ca/blog/feed/
+    type: BlogRSS
+    note: The only live, programmatically reachable Zolo surface found (HTTP 200, RSS 2.0).
+
+actions:
+  apisYmlCreated: true
+  apisListed: 0
+  openapiDirectoryCreated: false
+  reason: >-
+    apis[] is deliberately empty. Zolo documents no public API. Listing the
+    robots-disallowed /gallery_map_json.php route or the undocumented
+    rss_new_listings.php syndication feed would misrepresent private implementation
+    details and an SEO aid as developer products, and the Terms of Use expressly forbid
+    programmatic collection of the data behind them. No specification of any kind —
+    OpenAPI, Swagger, OData $metadata, AsyncAPI, GraphQL SDL or Postman collection —
+    was found, so no openapi/ directory was created.
