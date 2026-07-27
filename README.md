@@ -53,15 +53,34 @@ Upstream, Zolo receives the data as a licensed brokerage with board/MLS membersh
 
 None found — the absence is itself the finding. No webhook or event documentation, no published SDK, no CLI, no Postman workspace or collection. No Zolo GitHub organization could be verified: [github.com/zolo](https://github.com/zolo) is a different company whose declared blog is zolo.io, and `github.com/zolocanada` is an empty organization with zero public repositories and no metadata, so neither is claimed here. Zolo does ship iOS and Android apps (governed by Section 24 of the Terms of Use), but their backend is undocumented and no contract is published for it.
 
+## Artifacts
+
+Enrichment round 2026-07-26. Every path on `www.zolo.ca` answers automated clients with a Cloudflare challenge, so several artifacts were recovered verbatim from Internet Archive snapshots and the provenance is recorded in each file.
+
+- [`well-known/zolo-well-known.yml`](well-known/zolo-well-known.yml) — full STEP 0b contract-discovery log. All `/.well-known/*` and all OpenAPI/Swagger/GraphQL probes 403. Certificate Transparency (certspotter) confirms no `api.`, `developer.`, `docs.`, `data.` or `partners.` host has ever been certificated — only marketing, blog, training and four non-production environments (`sit`, `stg1`, `stg2`, `uat`). Negative result, so **no `WellKnown` pointer is wired**.
+- [`well-known/zolo-robots.txt`](well-known/zolo-robots.txt) — verbatim `robots.txt` (Internet Archive, 2025-11-13). Declares six sitemaps plus the new-listings RSS feed, disallows `/gallery_map_json.php`, `/crea_accept.php` and `/_terms_modal.php`, and blocks YandexBot, Baiduspider, trovitBot and Sogou — but **names no AI crawler at all**.
+- [`conventions/zolo-conventions.yml`](conventions/zolo-conventions.yml) — data-access conventions: the public RSS 2.0 feed (3,899 items observed), the XML sitemap family, the schema.org block, the undocumented map-JSON endpoint, the mobile backend, and the VOW licence model. No idempotency, pagination, versioning or error contract exists to record.
+- [`conformance/zolo-conformance.yml`](conformance/zolo-conformance.yml) — conforms to robots.txt, sitemaps.org, RSS 2.0, schema.org and the CREA/board IDX-VOW display rules; does not conform to OpenAPI, GraphQL, AsyncAPI, MCP, OAuth 2.0, OIDC, RFC 9457, RFC 9116, RFC 8615, RFC 9727, llms.txt, OData, or any RESO certification. No compliance programme published, so **no `Compliance` pointer is wired**.
+- [`json-ld/zolo-organization.jsonld`](json-ld/zolo-organization.jsonld) — the site-wide schema.org block, verbatim. `WebSite` + `Corporation`, self-reporting founding year 2012, the three founders, and the authoritative `sameAs` social list (the social pointers in `apis.yml` come from here, not from guesswork). No `RealEstateListing` markup anywhere — the listing content is exactly what the VOW licence forecloses.
+- [`json-schema/zolo-map-listing.schema.json`](json-schema/zolo-map-listing.schema.json) — the observed shape of `/gallery_map_json.php`, derived from an archived response. 24 all-string fields including `lat`/`lng`, `board`, `agent_name` and the IDX display flags `show_idx`, `show_basic`, `disp_addr`. Descriptive research only: that endpoint is robots-disallowed and covered by the anti-scraping clause.
+- [`packages/zolo-packages.yml`](packages/zolo-packages.yml) — npm, PyPI, RubyGems, Packagist, NuGet, crates.io and GitHub all searched; **no first-party client library exists**, so no `SDKs` pointer is wired. Records the two verified first-party mobile apps (`com.ols.zolo` on both stores) as the evidence of a private backend.
+- [`security/zolo-domain-security.yml`](security/zolo-domain-security.yml) — probed: TLS 1.3, HSTS `max-age=31536000`, SPF and DMARC `p=reject`, CAA present, **no DNSSEC**. No security.txt, no disclosure policy, no bug bounty and no trust centre were found, so no `Security`, `VulnerabilityDisclosure` or `TrustCenter` artifact was written.
+- [`llms/zolo-llms.txt`](llms/zolo-llms.txt) — generated (Zolo publishes none), telling an agent plainly that there is nothing to sign up for and pointing it at CREA's DDF or a member board feed instead.
+
 ## Common Properties
 
 - [Website](https://www.zolo.ca/)
 - [Blog](https://www.zolo.ca/blog)
 - [Blog RSS](https://www.zolo.ca/blog/feed/)
+- [New listings RSS feed](https://www.zolo.ca/rss_new_listings.php)
+- [Sitemap index](https://www.zolo.ca/site_map_index_https.php)
+- [Contact / Support](https://www.zolo.ca/contact_us.php)
+- [Careers](https://www.zolo.ca/careers)
 - [Terms of Service](https://www.zolo.ca/legal-terms)
 - [Privacy Policy](https://www.zolo.ca/legal-privacy)
 - [Privacy & Security Centre](https://www.zolo.ca/legal)
-- [LinkedIn](https://www.linkedin.com/company/zolocanada)
+- [iOS app](https://apps.apple.com/ca/app/zolo-real-estate-apartments/id898656833) — [Android app](https://play.google.com/store/apps/details?id=com.ols.zolo)
+- [LinkedIn](https://www.linkedin.com/company/zolocanada) · [Facebook](https://www.facebook.com/zolocanada) · [X](https://www.twitter.com/zolocanada) · [Instagram](https://www.instagram.com/zolocanada) · [YouTube](https://www.youtube.com/c/ZoloCanada) · [Pinterest](https://www.pinterest.com/zolocanada)
 
 ## Maintainers
 

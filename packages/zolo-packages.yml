@@ -1,0 +1,58 @@
+generated: '2026-07-26'
+method: searched
+source: public package-registry searches, 2026-07-26
+summary: >-
+  No first-party Zolo (Zolo Ventures Ltd. / zolo.ca) client library exists in any
+  public package registry. The name "zolo" is occupied on npm and PyPI by
+  unrelated projects, and the github.com/zolo organization belongs to zolo.io, a
+  different company. Because Zolo publishes no API, there is nothing for an SDK
+  to wrap — the absence is a consequence of the closed API posture, not an
+  oversight. No SDKs pointer is wired into apis.yml.
+packages: []
+registries_probed:
+- registry: npm
+  query: zolo
+  result: no first-party package
+  note: >-
+    Matches are unrelated — "zolo" (a YAML task-runner CLI), "@jov1an/zolo",
+    "@zolomedia/bifrost-client" (ZoloAi), plus template/spam packages.
+- registry: pypi
+  query: zolo
+  result: no first-party package
+  note: 'pypi.org/project/zolo/ 2.1.2.1 exists but carries no summary, author, or homepage and is unrelated to zolo.ca.'
+- registry: rubygems
+  query: zolo
+  result: no results
+- registry: github
+  query: 'org:zolo'
+  result: unrelated organization
+  note: github.com/zolo is an organization whose blog is zolo.io — not Zolo Ventures Ltd. of Toronto.
+- registry: packagist
+  query: zolo
+  result: no first-party package
+- registry: nuget
+  query: zolo
+  result: no first-party package
+- registry: crates.io
+  query: zolo
+  result: no first-party package
+mobile_applications:
+- platform: ios
+  name: Zolo Real Estate & Apartments
+  bundle_id: com.ols.zolo
+  seller: Zolo Ventures Ltd
+  version: 1.9.1.2
+  updated: '2026-06-15'
+  url: https://apps.apple.com/ca/app/zolo-real-estate-apartments/id898656833
+  source: https://itunes.apple.com/lookup?id=898656833&country=ca
+  official: true
+- platform: android
+  name: Real Estate in Canada by Zolo
+  package: com.ols.zolo
+  url: https://play.google.com/store/apps/details?id=com.ols.zolo
+  official: true
+note: >-
+  The two shipping mobile applications are the clearest evidence that a private
+  backend API exists behind Zolo's Cloudflare edge. It is a first-party
+  consumption surface only — no public contract, credentials, or terms are
+  offered for it.

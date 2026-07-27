@@ -1,0 +1,122 @@
+generated: '2026-07-26'
+method: probed
+source: live HTTPS probes of every Zolo host, 2026-07-26
+host: https://www.zolo.ca
+summary: >-
+  No /.well-known/ document was retrievable on any Zolo host. Every conventional
+  discovery path on www.zolo.ca is answered by a Cloudflare bot challenge
+  (HTTP 403, cf-mitigated: challenge) rather than a document, and no dedicated
+  API, developer, docs or data host exists to probe. Certificate Transparency
+  confirms this is not a probe artefact: no certificate has ever been issued for
+  api., developer., developers., docs., data. or partners.zolo.ca. This artifact
+  is a negative-result record — no WellKnown pointer is wired into apis.yml
+  because no well-known document was found.
+documents:
+- path: /.well-known/security.txt
+  status: 403
+  note: Cloudflare challenge; no RFC 9116 file. Never captured by the Internet Archive either.
+- path: /.well-known/openid-configuration
+  status: 403
+  note: Cloudflare challenge; no OIDC discovery document.
+- path: /.well-known/oauth-authorization-server
+  status: 403
+  note: Cloudflare challenge; no RFC 8414 metadata.
+- path: /.well-known/api-catalog
+  status: 403
+  note: Cloudflare challenge; no RFC 9727 API catalog.
+- path: /.well-known/ai-plugin.json
+  status: 403
+  note: Cloudflare challenge; no plugin manifest.
+- path: /llms.txt
+  status: 403
+  note: Cloudflare challenge; no llms.txt has ever been archived for this host.
+root_documents:
+- path: /robots.txt
+  status: 403
+  live_note: >-
+    Blocked by the Cloudflare challenge to every client we probed. Recovered
+    verbatim from the Internet Archive snapshot of 2025-11-13 (HTTP 200,
+    text/plain, 956 bytes) and saved as zolo-robots.txt.
+  file: zolo-robots.txt
+  source: https://web.archive.org/web/20251113122046id_/https://www.zolo.ca/robots.txt
+  declares:
+  - {kind: rss, url: 'https://www.zolo.ca/rss_new_listings.php', note: declared as a Sitemap; actually an RSS 2.0 new-listings feed}
+  - {kind: sitemap, url: 'https://www.zolo.ca/site_map_index_https.php'}
+  - {kind: sitemap, url: 'https://www.zolo.ca/blog/sitemap_index.xml'}
+  - {kind: sitemap, url: 'https://www.zolo.ca/xmlsitemap-index/listings.xml'}
+  - {kind: sitemap, url: 'https://www.zolo.ca/xmlsitemap-index/cities.xml'}
+  - {kind: sitemap, url: 'https://www.zolo.ca/xmlsitemap-index/neighbourhoods.xml'}
+  - {kind: sitemap, url: 'https://www.zolo.ca/xmlsitemap-index/content.xml'}
+  disallows_of_note:
+  - path: /gallery_map_json.php
+    note: an undocumented JSON endpoint — see conventions/zolo-conventions.yml
+  - path: /crea_accept.php
+    note: the CREA terms-acceptance route
+  - path: /_terms_modal.php
+    note: the VOW terms modal
+  - path: /account
+    note: registered-user area
+  - path: '/map-search?'
+    note: map search query surface
+  ai_bot_policy: >-
+    None. robots.txt names YandexBot, Baiduspider, trovitBot and Sogou for a full
+    disallow, but carries no rule for GPTBot, ClaudeBot, CCBot, Google-Extended,
+    PerplexityBot or any other AI crawler — and no /.well-known/ai-plugin.json,
+    ai.txt or llms.txt exists. Zolo expresses no machine-readable AI-access
+    preference at all; its only stated position on automated use is the legal
+    anti-scraping clause in Section 23 of the Terms of Use.
+contract_probes:
+  note: >-
+    STEP 0b contract discovery. Probed against the only reachable host
+    (www.zolo.ca) because no API host exists in DNS.
+  paths:
+  - {path: /openapi.json, status: 403}
+  - {path: /openapi.yaml, status: 403}
+  - {path: /swagger.json, status: 403}
+  - {path: /v1/openapi.json, status: 403}
+  - {path: /api-docs, status: 403}
+  - {path: /api, status: 403}
+  - {path: /graphql, status: 403}
+  graphql_introspection: not-attempted
+  graphql_note: No /graphql surface resolves; the path is answered by the same Cloudflare challenge.
+  mcp_tools_list: not-attempted
+  mcp_note: No MCP server is published or advertised by Zolo.
+hosts_probed:
+- {host: api.zolo.ca, dns: NXDOMAIN}
+- {host: developer.zolo.ca, dns: NXDOMAIN}
+- {host: developers.zolo.ca, dns: NXDOMAIN}
+- {host: docs.zolo.ca, dns: NXDOMAIN}
+- {host: data.zolo.ca, dns: NXDOMAIN}
+- {host: partners.zolo.ca, dns: NXDOMAIN}
+- {host: status.zolo.ca, dns: NXDOMAIN}
+- {host: help.zolo.ca, dns: NXDOMAIN}
+- {host: trust.zolo.ca, dns: NXDOMAIN}
+- {host: security.zolo.ca, dns: NXDOMAIN}
+- {host: www.zolo.ca, dns: resolves, note: Cloudflare (104.18.20.28, 104.18.21.28)}
+- {host: blog.zolo.ca, dns: resolves}
+- {host: photos.zolo.ca, dns: resolves, note: listing image CDN}
+certificate_transparency:
+  source: https://api.certspotter.com/v1/issuances?domain=zolo.ca&include_subdomains=true
+  fetched: '2026-07-26'
+  names:
+  - '*.zolo.ca'
+  - zolo.ca
+  - blog.zolo.ca
+  - '*.blog.zolo.ca'
+  - email.zolo.ca
+  - go.zolo.ca
+  - info.zolo.ca
+  - training.zolo.ca
+  - sit.zolo.ca
+  - '*.sit.zolo.ca'
+  - stg1.zolo.ca
+  - '*.stg1.zolo.ca'
+  - stg2.zolo.ca
+  - '*.stg2.zolo.ca'
+  - uat.zolo.ca
+  - '*.uat.zolo.ca'
+  finding: >-
+    The CT record shows marketing (email, go, info), content (blog), training and
+    four non-production environments (sit, stg1, stg2, uat) — and no API,
+    developer, docs, data or partner host has ever been certificated. Zolo's
+    non-production estate is real; its public API estate is not.

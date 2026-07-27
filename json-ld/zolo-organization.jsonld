@@ -1,0 +1,8 @@
+[
+    {
+        "@context":"http://schema.org","@type":"WebSite","name":"Zolo","alternateName":"Zolo.ca","url":"https://www.zolo.ca"
+            },
+    {
+        "@context":"http://schema.org","@type":"Corporation","name":"Zolo","description":"Zolo is one of Canada's most popular national real estate marketplaces. Each month, over 10 million home shoppers use Zolo to level up the way they buy, sell, rent, finance, and learn about real estate.","url":"https://www.zolo.ca","logo":"https://www.zolo.ca/img/zolo-logo-graph.png","telephone":"1-416-898-8932","foundingDate":"2012","founders":[{"@type":"Person","name":"Ryley Best"},{"@type":"Person","name":"Jason Billingsley"},{"@type":"Person","name":"Barry Allen"}],"sameAs":["https://www.facebook.com/zolocanada","https://www.twitter.com/zolocanada","https://www.pinterest.com/zolocanada","https://www.linkedin.com/company/zolocanada","https://www.youtube.com/c/ZoloCanada","https://www.instagram.com/zolocanada","https://www.glassdoor.ca/Reviews/Zolo-Reviews-E715995.htm"]
+    }
+                    ]

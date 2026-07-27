@@ -1,0 +1,44 @@
+generated: '2026-07-26'
+method: searched
+source: https://web.archive.org/web/20250328091503id_/https://www.zolo.ca/mobile
+fetched: '2026-07-26'
+summary: >-
+  Zolo embeds a schema.org JSON-LD block in the head of every www.zolo.ca page.
+  It is the only structured, machine-readable data Zolo publishes about itself.
+  Recovered verbatim from an Internet Archive snapshot because the live host
+  answers every automated request with a Cloudflare challenge (HTTP 403).
+documents:
+- file: zolo-organization.jsonld
+  context: http://schema.org
+  types:
+  - WebSite
+  - Corporation
+  properties_of_note:
+    name: Zolo
+    alternateName: Zolo.ca
+    url: https://www.zolo.ca
+    telephone: 1-416-898-8932
+    foundingDate: '2012'
+    founders:
+    - Ryley Best
+    - Jason Billingsley
+    - Barry Allen
+    sameAs:
+    - https://www.facebook.com/zolocanada
+    - https://www.twitter.com/zolocanada
+    - https://www.pinterest.com/zolocanada
+    - https://www.linkedin.com/company/zolocanada
+    - https://www.youtube.com/c/ZoloCanada
+    - https://www.instagram.com/zolocanada
+    - https://www.glassdoor.ca/Reviews/Zolo-Reviews-E715995.htm
+  note: >-
+    The Corporation node self-reports the founding year (2012) and the three
+    founders, and the sameAs array is the authoritative first-party list of
+    Zolo's social profiles — those are wired into apis.yml from here rather than
+    guessed.
+not_found:
+  RealEstateListing: >-
+    No schema.org RealEstateListing / Residence / Offer markup was observable on
+    the pages available to us; the site-wide block carries organization identity
+    only. This is consistent with the VOW licence: listing content is what Zolo
+    is contractually barred from syndicating.

@@ -1,0 +1,38 @@
+User-agent: *
+Disallow: /contact_us.php?
+Disallow: /sign_out.php
+Disallow: /index.php
+Disallow: /account
+Disallow: /app$
+Disallow: /gallery_map_json.php
+Disallow: /crea_accept.php
+Disallow: /_terms_modal.php
+Disallow: /map-search?
+Disallow: *?*sarea
+Disallow: /mortgages
+Disallow: /mrtgappdir.php
+Disallow: /rdrc.php
+Disallow: /ie-brower-deprecation-message.php
+Disallow: /not_me.php
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: trovitBot
+Disallow: /
+
+User-agent: Sogou web spider
+Disallow: /
+
+# Location of sitemap file
+
+Sitemap: https://www.zolo.ca/rss_new_listings.php
+Sitemap: https://www.zolo.ca/site_map_index_https.php
+Sitemap: https://www.zolo.ca/blog/sitemap_index.xml
+Sitemap: https://www.zolo.ca/xmlsitemap-index/listings.xml
+Sitemap: https://www.zolo.ca/xmlsitemap-index/cities.xml
+Sitemap: https://www.zolo.ca/xmlsitemap-index/neighbourhoods.xml
+Sitemap: https://www.zolo.ca/xmlsitemap-index/content.xml

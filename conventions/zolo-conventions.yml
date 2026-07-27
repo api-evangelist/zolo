@@ -1,0 +1,151 @@
+generated: '2026-07-26'
+method: searched
+source: >-
+  Zolo robots.txt (Internet Archive 2025-11-13), archived responses from
+  www.zolo.ca, Zolo Terms of Use s.23, and live DNS/TLS/HTTP probes, 2026-07-26
+summary: >-
+  Zolo has no API conventions because Zolo has no API. What it does have is a
+  set of data-access conventions — a public RSS syndication feed, a family of XML
+  sitemaps, an embedded schema.org block, an undocumented internal JSON endpoint
+  behind a bot challenge, and a Virtual Office Website licence that governs all
+  of it. This artifact captures those conventions as they actually are, so the
+  gap between what Zolo operates and what Zolo offers is on the record.
+api_surface:
+  public_api: false
+  developer_portal: false
+  machine_readable_contract: none
+  note: >-
+    No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, RESO OData $metadata, MCP server,
+    or SDK. See well-known/zolo-well-known.yml for the full probe log.
+authentication:
+  style: none-published
+  note: >-
+    There is no API key, OAuth client, token, or partner credential to obtain.
+    Human access to listing data requires registering a zolo.ca account and
+    accepting the VOW terms; that account grants a browser session, not an API
+    credential.
+idempotency:
+  supported: false
+  note: >-
+    No write surface is exposed to third parties, so no idempotency contract
+    exists. No Idempotency pointer is wired into apis.yml.
+pagination:
+  style: none-published
+  note: >-
+    The public RSS feed is a single unpaginated document (3,899 <item> elements
+    in the 2026-01-03 snapshot). The XML sitemap family paginates by index file
+    (listings / cities / neighbourhoods / content) rather than by query parameter.
+versioning:
+  scheme: none-published
+  note: No versioned paths, version headers, or dated releases are published.
+error_envelope:
+  format: none-published
+  note: >-
+    The only error shape a client reliably encounters is the Cloudflare
+    challenge response — HTTP 403 with the cf-mitigated: challenge header — which
+    is edge behaviour, not an API error contract.
+rate_limiting:
+  documented: false
+  enforcement: cloudflare-bot-management
+  note: >-
+    Access control is edge-enforced rather than contract-expressed: there is no
+    published quota, no RateLimit header specification, and no plan tiers,
+    because there is no programme to have limits for.
+transport_security:
+  https: true
+  tls_version: TLSv1.3
+  hsts: true
+  hsts_max_age: 31536000
+  source: security/zolo-domain-security.yml
+public_data_surfaces:
+- name: New listings RSS feed
+  url: https://www.zolo.ca/rss_new_listings.php
+  format: RSS 2.0
+  auth: none
+  declared_in: robots.txt (as a Sitemap directive)
+  status_live: 403 (Cloudflare challenge to automated clients)
+  status_archived: 200 text/xml
+  evidence: https://web.archive.org/web/20260103074559id_/https://www.zolo.ca/rss_new_listings.php
+  shape:
+    channel: {title: Zolo, link: 'https://www.zolo.ca', description: A Canadian Real Estate Marketplace, language: en-us}
+    item_fields: [title, description, link, pubDate]
+    item_count_observed: 3899
+    title_pattern: '"<street address>, <city or neighbourhood> | For Sale @ $<price>" (also "For Rent @")'
+    description_pattern: '"<n> bed - <n> bath - <sqft range> home For Sale at $<price>. MLS# <number>. View <address> & see <n> photos today!"'
+    note: >-
+      The description string carries the MLS® number, bed/bath counts, square-foot
+      band, price and photo count in prose. It is the richest structured listing
+      data Zolo publishes without a licence — and it is prose, not fields.
+  note: >-
+    This is the single genuinely public, unauthenticated, machine-readable data
+    surface Zolo operates. It is a syndication feed for search engines, not a
+    developer product: no documentation, no support, no terms specific to it, and
+    no stability commitment.
+- name: XML sitemap family
+  urls:
+  - https://www.zolo.ca/site_map_index_https.php
+  - https://www.zolo.ca/xmlsitemap-index/listings.xml
+  - https://www.zolo.ca/xmlsitemap-index/cities.xml
+  - https://www.zolo.ca/xmlsitemap-index/neighbourhoods.xml
+  - https://www.zolo.ca/xmlsitemap-index/content.xml
+  - https://www.zolo.ca/blog/sitemap_index.xml
+  format: sitemaps.org XML
+  auth: none
+  declared_in: robots.txt
+  note: >-
+    The sitemap split is the closest thing Zolo publishes to a resource taxonomy —
+    listings, cities, neighbourhoods, content, blog.
+- name: schema.org JSON-LD
+  format: application/ld+json
+  types: [WebSite, Corporation]
+  file: json-ld/zolo-organization.jsonld
+  note: Organization identity only; no listing-level structured data.
+undocumented_surfaces:
+- name: Map gallery JSON
+  path: /gallery_map_json.php
+  method: GET
+  format: application/json (array of listing objects)
+  schema: json-schema/zolo-map-listing.schema.json
+  documented: false
+  robots: 'Disallow: /gallery_map_json.php'
+  access: prohibited-by-terms
+  evidence: https://web.archive.org/web/20260609045406id_/https://www.zolo.ca/gallery_map_json.php
+  note: >-
+    A real JSON endpoint backing the map-search gallery, returning listing
+    records with coordinates, price, board code, brokerage attribution and IDX
+    display flags. It is explicitly crawler-disallowed and covered by the
+    anti-scraping clause. Recorded here as evidence that Zolo runs a JSON data
+    layer it chooses not to offer — not as a consumable endpoint.
+- name: Mobile application backend
+  documented: false
+  evidence: packages/zolo-packages.yml (iOS com.ols.zolo, Android com.ols.zolo)
+  note: >-
+    Two shipping first-party mobile apps imply a private API. No host for it
+    exists in public DNS or Certificate Transparency, so it is either served from
+    www.zolo.ca behind the edge or from an unadvertised host.
+licensing:
+  model: Virtual Office Website (VOW)
+  terms: https://www.zolo.ca/legal-terms
+  clause: Section 23
+  requirements:
+  - registration of an account
+  - warranted bona fide interest in buying, selling or leasing
+  - personal, non-commercial use only
+  prohibitions:
+  - scraping (including screen scraping and database scraping)
+  - data mining
+  - redistribution, dissemination, sublicensing or resale
+  enforceable_by: [CREA, TRREB, ITSO, REBGV, Pillar9, OREB]
+  crea_gate: /crea_accept.php
+  note: >-
+    The licence — not the technology — is the reason there is no API. Listing
+    data reaches Zolo through CREA's DDF and individual board MLS® Systems, and
+    the boards' rules travel with it. Any Zolo API would have to reproduce those
+    terms downstream, which is exactly what the VOW clause forecloses.
+cross_references:
+  security: security/zolo-domain-security.yml
+  well_known: well-known/zolo-well-known.yml
+  conformance: conformance/zolo-conformance.yml
+  json_ld: json-ld/zolo-json-ld.yml
+  json_schema: json-schema/zolo-map-listing.schema.json
+  packages: packages/zolo-packages.yml

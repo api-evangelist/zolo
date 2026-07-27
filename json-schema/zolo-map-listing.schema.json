@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zolo/refs/heads/main/json-schema/zolo-map-listing.schema.json",
+  "title": "Zolo map-gallery listing",
+  "description": "Shape of one listing object returned by the undocumented https://www.zolo.ca/gallery_map_json.php endpoint, which backs the map-search result gallery on zolo.ca. DERIVED by observation from a publicly archived response (Internet Archive snapshot 2026-06-09, 15 records), not from any Zolo-published specification. Zolo publishes no contract for this endpoint, disallows it in robots.txt, and Section 23 of its Terms of Use prohibits scraping, data mining and redistribution of listing data. This schema is descriptive research documenting that an internal JSON surface exists; it is not an invitation to consume it, and no baseURL for it is published in apis.yml. Every field is transmitted as a JSON string, including numeric and boolean-flag values.",
+  "x-generated": "2026-07-26",
+  "x-method": "derived",
+  "x-source": "https://web.archive.org/web/20260609045406id_/https://www.zolo.ca/gallery_map_json.php",
+  "x-status": "undocumented-internal",
+  "x-access": "prohibited-by-terms; robots.txt Disallow: /gallery_map_json.php; VOW licence (Terms of Use s.23)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {"type": "string", "description": "Zolo internal listing identifier (numeric string), e.g. \"18835069\"."},
+      "url_street_address": {"type": "string", "description": "Slugified street address forming the listing URL path segment, e.g. \"1380-elmwood-drive\"."},
+      "url_city": {"type": "string", "description": "Slugified city forming the listing URL path segment, e.g. \"moncton\"."},
+      "city": {"type": "string", "description": "Display city name."},
+      "province": {"type": "string", "description": "Two-letter Canadian province/territory code, e.g. \"NB\", \"ON\", \"AB\"."},
+      "disp_addr": {"type": "string", "description": "Display address; observed empty on records where board rules suppress address display."},
+      "list_price": {"type": "string", "description": "Comma-formatted list price without currency symbol, e.g. \"1,999,990\"."},
+      "lpk": {"type": "string", "description": "Abbreviated list price used on the map pin, e.g. \"2M\", \"1.9M\"."},
+      "list_date": {"type": "string", "description": "Listing date-time, \"YYYY-MM-DD HH:MM:SS\" (no timezone offset transmitted)."},
+      "days_on_cr": {"type": "string", "description": "Days on market as a numeric string."},
+      "lat": {"type": "string", "description": "Latitude, decimal degrees, as a string."},
+      "lng": {"type": "string", "description": "Longitude, decimal degrees, as a string."},
+      "board": {"type": "string", "description": "Source real estate board code, e.g. \"DND\" (Greater Moncton REALTORS of New Brunswick). Confirms listings are board-sourced."},
+      "board_id": {"type": "string", "description": "Board-side identifier; observed empty in the sampled records."},
+      "agent_name": {"type": "string", "description": "Listing brokerage name, e.g. \"Re/max Quality Real Estate Inc.\" — the attribution the board licence requires."},
+      "type": {"type": "string", "description": "Property type; observed empty in the sampled records."},
+      "photo": {"type": "string", "format": "uri", "description": "Primary photo URL on the photos.zolo.ca CDN, cache-busted with the URL-encoded image timestamp."},
+      "images_copied": {"type": "string", "description": "Count of images ingested for the listing, as a numeric string."},
+      "ic": {"type": "string", "description": "Flag, observed \"1\"; meaning not documented by Zolo (appears to relate to image availability)."},
+      "cpaddress": {"type": "string", "description": "Flag, observed \"1\"; meaning not documented by Zolo."},
+      "cpid": {"type": "string", "description": "Numeric-string identifier, observed \"0\"; meaning not documented by Zolo."},
+      "show_idx": {"type": "string", "description": "IDX display permission flag, observed \"1\" — whether the listing may be displayed under the board's IDX rules."},
+      "show_basic": {"type": "string", "description": "Flag, observed \"1\"; controls whether only basic listing detail may be shown."},
+      "name_on_top": {"type": "string", "description": "Display flag, observed \"0\"; controls brokerage-name placement on the card."}
+    },
+    "additionalProperties": true
+  }
+}
