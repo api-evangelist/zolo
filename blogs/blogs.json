@@ -2,10 +2,31 @@
   "repo": "zolo",
   "feeds": [
     {
+      "source": "https://www.zolo.ca/blog/feed/",
+      "feed_url": "https://www.zolo.ca/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.zolo.ca/blog/feed",
+      "feed_url": "https://www.zolo.ca/blog/feed",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.zolo.ca/careers",
+      "feed_url": "https://www.zolo.ca/careers",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
       "source": "https://www.zolo.ca/",
       "feed_url": "https://www.zolo.ca/blog/feed/",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "discovered"
     },
     {
@@ -14,15 +35,8 @@
       "title": "",
       "saved": 0,
       "method": "discovered"
-    },
-    {
-      "source": "https://www.zolo.ca/careers",
-      "feed_url": "https://www.zolo.ca/careers",
-      "title": "",
-      "saved": 0,
-      "method": "none"
     }
   ],
-  "post_count": 1,
-  "fetched": "2026-08-01T15:49:00Z"
+  "post_count": 10,
+  "fetched": "2026-08-06T14:08:46Z"
 }
