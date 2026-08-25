@@ -5,7 +5,7 @@
       "source": "https://www.zolo.ca/blog/feed/",
       "feed_url": "https://www.zolo.ca/blog/feed/",
       "title": "",
-      "saved": 2,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -20,8 +20,7 @@
       "feed_url": "https://www.zolo.ca/careers",
       "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "fetch_failed: HTTPError"
+      "method": "none"
     },
     {
       "source": "https://www.zolo.ca/",
@@ -38,6 +37,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 12,
-  "fetched": "2026-08-15T12:11:08Z"
+  "post_count": 14,
+  "fetched": "2026-08-22T20:20:02Z"
 }
