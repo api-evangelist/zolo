@@ -32,6 +32,17 @@ description: >-
   licensed, not open. RESO is absent: Zolo is not among the nineteen Canadian organizations RESO
   lists as members, and no Web API or Data Dictionary certification, OData $metadata document, or
   Universal Property Identifier (UPI) usage was found. No open, unlicensed dataset is published.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.zolo.ca/img/zolo-logo-graph.png
 tags:
 - Real-Estate
