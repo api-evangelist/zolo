@@ -2,13 +2,32 @@
   "repo": "zolo",
   "feeds": [
     {
+      "source": "https://www.zolo.ca/blog",
+      "feed_url": "https://www.zolo.ca/blog/feed",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.zolo.ca/",
+      "feed_url": "https://www.zolo.ca/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.zolo.ca/careers",
+      "feed_url": "https://www.zolo.ca/rss_new_listings.php",
+      "title": "",
+      "saved": 31,
+      "method": "discovered"
+    },
+    {
       "source": "https://www.zolo.ca/blog/feed/",
       "feed_url": "https://www.zolo.ca/blog/feed/",
       "title": "",
       "saved": 0,
-      "method": "feed",
-      "nature": "vendor-blog",
-      "nature_basis": "path_blog"
+      "method": "feed"
     },
     {
       "source": "https://www.zolo.ca/blog/feed",
@@ -18,33 +37,15 @@
       "method": "feed"
     },
     {
-      "source": "https://www.zolo.ca/careers",
+      "source": "https://www.zolo.ca/rss_new_listings.php",
       "feed_url": "https://www.zolo.ca/rss_new_listings.php",
       "title": "",
-      "saved": 59,
-      "method": "discovered",
-      "nature": "undetermined",
-      "nature_basis": null
-    },
-    {
-      "source": "https://www.zolo.ca/",
-      "feed_url": "https://www.zolo.ca/rss_new_listings.php",
-      "title": "",
-      "saved": 0,
-      "method": "discovered",
-      "nature": "undetermined",
-      "nature_basis": null
-    },
-    {
-      "source": "https://www.zolo.ca/blog",
-      "feed_url": "https://www.zolo.ca/blog/feed",
-      "title": "",
-      "saved": 0,
-      "method": "discovered"
+      "saved": 1,
+      "method": "feed"
     }
   ],
-  "post_count": 74,
-  "fetched": "2026-08-30T22:33:40Z",
+  "post_count": 157,
+  "fetched": "2026-09-06T19:17:18Z",
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
   "feed_nature_note": "Whether these posts are the vendor publishing or its support community, decided on the URL path grammar of the saved posts -- not the hostname, which carries both on Khoros, and not author diversity, which flags large vendor blogs as forums. 'undetermined' means undetermined."
