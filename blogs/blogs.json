@@ -17,17 +17,10 @@
     },
     {
       "source": "https://www.zolo.ca/careers",
-      "feed_url": "https://www.zolo.ca/rss_new_listings.php",
-      "title": "",
-      "saved": 31,
-      "method": "discovered"
-    },
-    {
-      "source": "https://www.zolo.ca/blog/feed/",
-      "feed_url": "https://www.zolo.ca/blog/feed/",
+      "feed_url": "https://www.zolo.ca/careers",
       "title": "",
       "saved": 0,
-      "method": "feed"
+      "method": "none"
     },
     {
       "source": "https://www.zolo.ca/blog/feed",
@@ -37,15 +30,19 @@
       "method": "feed"
     },
     {
-      "source": "https://www.zolo.ca/rss_new_listings.php",
-      "feed_url": "https://www.zolo.ca/rss_new_listings.php",
+      "source": "https://www.zolo.ca/blog/feed/",
+      "feed_url": "https://www.zolo.ca/blog/feed/",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://www.zolo.ca/rss_new_listings.php",
+      "error": "TimeoutError"
     }
   ],
-  "post_count": 157,
-  "fetched": "2026-09-06T19:17:18Z",
+  "post_count": 158,
+  "fetched": "2026-09-13T13:00:00Z",
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
   "feed_nature_note": "Whether these posts are the vendor publishing or its support community, decided on the URL path grammar of the saved posts -- not the hostname, which carries both on Khoros, and not author diversity, which flags large vendor blogs as forums. 'undetermined' means undetermined."
