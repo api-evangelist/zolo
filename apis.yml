@@ -57,7 +57,7 @@ accessModel:
   method: derived
 image: https://www.zolo.ca/img/zolo-logo-graph.png
 tags:
-- Real-Estate
+- Real Estate
 - Canada
 - Property Listings
 - MLS
@@ -80,6 +80,7 @@ tags_raw:
 - Rentals
 - Mortgage
 - Conveyancing
+- Real-Estate
 created: '2026-07-26'
 modified: '2026-07-26'
 specificationVersion: '0.23'
