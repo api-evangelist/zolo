@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "zolo",
+    "captured_at": "2026-10-11T200155",
+    "source_url": "https://www.zolo.ca/",
+    "source_type": "Website",
+    "file": "zolo-2026-10-11T200155.png",
+    "bytes": 875097,
+    "capture": "playwright-local"
+  }
+]
