@@ -1,4 +1,4 @@
-# Zolo (zolo)
+# Zolo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,88 +64,95 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Zolo is one of Canada's largest national residential real estate marketplaces and a licensed brokerage, operating as Zolo Ventures Ltd. with provincial brokerage subsidiaries — Zolo Realty (Ontario), (Alberta), (British Columbia), (Saskatchewan), (Manitoba) and (Quebec) Inc. — plus Zolo Mortgages Ltd. and Zolo Mortgages (Alberta) Ltd., all owned by Questrade Financial Group Inc. Founded in 2012 as a digital-first brokerage and headquartered at 1900-5700 Yonge Street in Toronto, Zolo reports over 10 million monthly visitors, 750+ active REALTORS®, and $1.5B+ in annual transaction volume across British Columbia, Alberta, Saskatchewan and Ontario. It sits in the Canadian challenger layer alongside HouseSigma, Wahi and Properly, below CREA — the single national cooperative that operates REALTOR.ca and the Data Distribution Facility (DDF) that syndicates member boards' listings — competing on listing speed, sold-price visibility and home-value tooling over data the boards and CREA control. Its API posture is closed. There is no developer portal, no API program page, no partner or data-licensing page, and no machine-readable contract of any kind. The subdomains api., developer., developers., docs., data. and partners.zolo.ca do not resolve in DNS, and every conventional contract path on www.zolo.ca is answered by a Cloudflare bot challenge (HTTP 403, `cf-mitigated: challenge`) rather than a specification. Zolo's own robots.txt declares a new-listings RSS syndication feed at `/rss_new_listings.php` and a CREA terms-acceptance route at `/crea_accept.php`, and Section 23 of its Terms of Use is a Virtual Office Website (VOW) clause requiring registration, a bona fide interest in buying or selling, personal non-commercial use only, and an express prohibition on "scraping" (including "screen scraping" and "database scraping"), data mining, redistribution or sublicensing — enforceable directly by CREA, TRREB, ITSO, REBGV, Pillar9 and OREB. Access is licensed, not open. RESO is absent: Zolo is not among the nineteen Canadian organizations RESO lists as members, and no Web API or Data Dictionary certification, OData `$metadata` document, or Universal Property Identifier (UPI) usage was found. No open, unlicensed dataset is published.
+Zolo is one of Canada's largest national residential real estate marketplaces and a licensed brokerage, operating as Zolo Ventures Ltd. with provincial brokerage subsidiaries — Zolo Realty (Ontario), (Alberta), (British Columbia), (Saskatchewan), (Manitoba) and (Quebec) Inc. — plus Zolo Mortgages Ltd. and Zolo Mortgages (Alberta) Ltd., all owned by Questrade Financial Group Inc. Founded in 2012 as a digital-first brokerage and headquartered at 1900-5700 Yonge Street in Toronto, Zolo reports over 10 million monthly visitors, 750+ active REALTORS®, and $1.5B+ in annual transaction volume across British Columbia, Alberta, Saskatchewan and Ontario. It sits in the Canadian challenger layer alongside HouseSigma, Wahi and Properly, below CREA — the single national cooperative that operates REALTOR.ca and the Data Distribution Facility (DDF) that syndicates member boards' listings — competing on listing speed, sold-price visibility and home-value tooling over data the boards and CREA control. Its API posture is closed. There is no developer portal, no API program page, no partner or data-licensing page, and no machine-readable API contract of any kind — no OpenAPI, GraphQL, AsyncAPI or MCP surface. The subdomains api., developer., developers., docs., data. and partners.zolo.ca do not resolve in DNS and have never appeared in Certificate Transparency, and every conventional contract path on www.zolo.ca is answered by a Cloudflare bot challenge (HTTP 403, cf-mitigated: challenge) rather than a specification. What Zolo does publish is syndication, not integration: an unauthenticated RSS 2.0 new-listings feed at /rss_new_listings.php, a family of sitemaps.org XML documents, and a site-wide schema.org JSON-LD block carrying organization identity only. Behind the edge it operates an undocumented JSON endpoint at /gallery_map_json.php and two first-party mobile apps (com.ols.zolo) on a private backend. Zolo's own robots.txt declares that RSS feed as a sitemap and a CREA terms-acceptance route at /crea_accept.php, and Section 23 of its Terms of Use is a Virtual Office Website (VOW) clause requiring registration, a bona fide interest in buying or selling, personal non-commercial use only, and an express prohibition on "scraping" (including "screen scraping" and "database scraping"), data mining, redistribution or sublicensing — enforceable directly by CREA, TRREB, ITSO, REBGV, Pillar9 and OREB. Access is licensed, not open. RESO is absent: Zolo is not among the nineteen Canadian organizations RESO lists as members, and no Web API or Data Dictionary certification, OData $metadata document, or Universal Property Identifier (UPI) usage was found. No open, unlicensed dataset is published.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/zolo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/zolo/refs/heads/main/apis.yml)
+**Areas:** Real Estate · Canada · Property Listings · MLS · IDX · Valuation · AVM · PropTech · Rentals · Mortgage · Conveyancing
 
-## Tags
+## Zolo on APIs.io
 
-- Real Estate
-- Canada
-- Property Listings
-- MLS
-- IDX
-- Valuation
-- AVM
-- PropTech
-- Rentals
-- Mortgage
-- Conveyancing
+Everything profiled for Zolo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/zolo/](https://apis.io/providers/zolo/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-26
-- **Modified:** 2026-07-26
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### JSON Schema (1)
 
-No public, documented APIs. Zolo publishes no developer portal, no API program, and no machine-readable contract of any kind. The two machine-readable surfaces that exist — the `/rss_new_listings.php` syndication feed declared in `robots.txt` and the `/gallery_map_json.php` route that `robots.txt` disallows to all crawlers — carry no documentation, terms, versioning or key issuance, and the Terms of Use expressly forbid programmatic collection of the data behind them. They are implementation and SEO details, not developer products, and are therefore not listed here.
+The data models the API reads and writes.
 
-## RESO Posture
+- [Zolo map-gallery listing](https://apis.io/schemas/zolo/zolo-map-listing.schema/)
 
-**Not RESO-certified. No RESO reference found.**
+#### JSON-LD (1)
 
-RESO's own [Canadian Membership](https://www.reso.org/canadian-membership/) page lists nineteen Canadian member organizations — CREA, Centris, Clientime, Falcon Technologies Corporation, Listed, Local Logic, Multi List Platform LP, MPAC, Origin Confirmed Ltd, Phoenix Software, Planitar, PropTexx, Prospects Software, the REALTORS® Association of Edmonton, the Real Estate Board of Greater Vancouver, the Saskatchewan REALTORS® Association, Templates 4 Business, the Victoria Real Estate Board and the Winnipeg Regional Real Estate Board — and Zolo is not among them. The [RESO certified organizations directory](https://www.reso.org/certificates/) contains no Canadian entries at all. No RESO Web API certification, no Data Dictionary certification or version, no OData `$metadata` document, and no Universal Property Identifier (UPI) usage was observed. This is the expected Canadian answer: RESO certification is a US industry mandate driven by NAR, while Canadian residential listings flow through CREA's national Data Distribution Facility (DDF) and individual board MLS® Systems — a route Zolo's own `robots.txt` records in the `/crea_accept.php` terms-acceptance path it disallows.
+Linked-data contexts for the provider's vocabulary.
 
-## Access Gate
+- [Zolo Organization Context](https://apis.io/jsonld/zolo/zolo-organization/)
 
-**`none-published`.** For a developer there is nothing to sign up for, apply to, or join, because nothing is on offer — no portal, no API program, no partner page, no data-licensing page, no application form, no API terms, no keys.
+#### Security (1)
 
-Beneath the absent developer surface the data itself is licensed, and the licence is explicit. Section 23 of Zolo's [Terms of Use](https://www.zolo.ca/legal-terms) is a **Virtual Office Website (VOW)** clause. A user must register an account, warrant "a bona fide interest in the purchase, sale, or lease of real estate of the type being offered through Zolo", and use the data only for personal non-commercial purposes. It states verbatim: *"You will not, directly or indirectly, display, post, disseminate, distribute, publish, broadcast, transfer, sell or sublicense any data obtained through the VOW to another individual or entity. The prohibited uses expressly include 'scraping' (including 'screen scraping' and 'database scraping'), 'data mining' or any other activity intended to collect, store, re-organize, summarize or manipulate the data."* The user also expressly authorizes the Real Estate Boards to inspect their account information to enforce compliance. The named proprietors are CREA (owner of the REALTOR® and MLS® marks), the Toronto Regional Real Estate Board (TRREB), Information Technology Systems Ontario (ITSO), the Real Estate Board of Greater Vancouver (REBGV), Alberta One Realty Listing Services Inc. (Pillar9) and the Ottawa Real Estate Board (OREB).
+Authentication, trust centre, and vulnerability disclosure.
 
-Upstream, Zolo receives the data as a licensed brokerage with board/MLS membership through its provincial Zolo Realty subsidiaries — a corporate membership posture, not a developer onboarding path. A third party wanting this data must become a member brokerage or go to CREA's DDF instead.
+- [Zolo Domain Security](https://apis.io/security/zolo/zolo-domain-security/)
 
-## Open Data
+## Where to find this API
 
-**None.** No open, unlicensed, publicly callable dataset. The sitemaps declared in `robots.txt` are crawl indexes of HTML pages, and the `rss_new_listings.php` feed carries MLS® numbers on every item — board-licensed listing data with no terms, documentation or versioning attached. Canada has no counterpart to HM Land Registry Price Paid or Ordnance Survey open data; provincial land registration is largely privatised, with Teranet operating Ontario's registry under long concession, so even the public record is a commercial product here.
-
-## Auth Model
-
-**None published.** No API key programme, no OAuth 2.0 or OpenID Connect developer flow, no SAML member portal. `/.well-known/openid-configuration` returns HTTP 403 behind the Cloudflare challenge, and the Internet Archive shows every `/.well-known/` probe against zolo.ca resolving only as a 301 apex redirect — no discovery document has ever been served. Human authentication is ordinary session-based account sign-in, layered with the board-mandated VOW registration and the CREA terms-acceptance step at `/crea_accept.php`. Machine access is not authenticated so much as actively blocked: the Cloudflare edge answers non-browser clients with HTTP 403 and `cf-mitigated: challenge`, even with browser-identical headers.
-
-## Webhooks, Events, SDKs, Postman
-
-None found — the absence is itself the finding. No webhook or event documentation, no published SDK, no CLI, no Postman workspace or collection. No Zolo GitHub organization could be verified: [github.com/zolo](https://github.com/zolo) is a different company whose declared blog is zolo.io, and `github.com/zolocanada` is an empty organization with zero public repositories and no metadata, so neither is claimed here. Zolo does ship iOS and Android apps (governed by Section 24 of the Terms of Use), but their backend is undocumented and no contract is published for it.
-
-## Artifacts
-
-Enrichment round 2026-07-26. Every path on `www.zolo.ca` answers automated clients with a Cloudflare challenge, so several artifacts were recovered verbatim from Internet Archive snapshots and the provenance is recorded in each file.
-
-- [`well-known/zolo-well-known.yml`](well-known/zolo-well-known.yml) — full STEP 0b contract-discovery log. All `/.well-known/*` and all OpenAPI/Swagger/GraphQL probes 403. Certificate Transparency (certspotter) confirms no `api.`, `developer.`, `docs.`, `data.` or `partners.` host has ever been certificated — only marketing, blog, training and four non-production environments (`sit`, `stg1`, `stg2`, `uat`). Negative result, so **no `WellKnown` pointer is wired**.
-- [`well-known/zolo-robots.txt`](well-known/zolo-robots.txt) — verbatim `robots.txt` (Internet Archive, 2025-11-13). Declares six sitemaps plus the new-listings RSS feed, disallows `/gallery_map_json.php`, `/crea_accept.php` and `/_terms_modal.php`, and blocks YandexBot, Baiduspider, trovitBot and Sogou — but **names no AI crawler at all**.
-- [`conventions/zolo-conventions.yml`](conventions/zolo-conventions.yml) — data-access conventions: the public RSS 2.0 feed (3,899 items observed), the XML sitemap family, the schema.org block, the undocumented map-JSON endpoint, the mobile backend, and the VOW licence model. No idempotency, pagination, versioning or error contract exists to record.
-- [`conformance/zolo-conformance.yml`](conformance/zolo-conformance.yml) — conforms to robots.txt, sitemaps.org, RSS 2.0, schema.org and the CREA/board IDX-VOW display rules; does not conform to OpenAPI, GraphQL, AsyncAPI, MCP, OAuth 2.0, OIDC, RFC 9457, RFC 9116, RFC 8615, RFC 9727, llms.txt, OData, or any RESO certification. No compliance programme published, so **no `Compliance` pointer is wired**.
-- [`json-ld/zolo-organization.jsonld`](json-ld/zolo-organization.jsonld) — the site-wide schema.org block, verbatim. `WebSite` + `Corporation`, self-reporting founding year 2012, the three founders, and the authoritative `sameAs` social list (the social pointers in `apis.yml` come from here, not from guesswork). No `RealEstateListing` markup anywhere — the listing content is exactly what the VOW licence forecloses.
-- [`json-schema/zolo-map-listing.schema.json`](json-schema/zolo-map-listing.schema.json) — the observed shape of `/gallery_map_json.php`, derived from an archived response. 24 all-string fields including `lat`/`lng`, `board`, `agent_name` and the IDX display flags `show_idx`, `show_basic`, `disp_addr`. Descriptive research only: that endpoint is robots-disallowed and covered by the anti-scraping clause.
-- [`packages/zolo-packages.yml`](packages/zolo-packages.yml) — npm, PyPI, RubyGems, Packagist, NuGet, crates.io and GitHub all searched; **no first-party client library exists**, so no `SDKs` pointer is wired. Records the two verified first-party mobile apps (`com.ols.zolo` on both stores) as the evidence of a private backend.
-- [`security/zolo-domain-security.yml`](security/zolo-domain-security.yml) — probed: TLS 1.3, HSTS `max-age=31536000`, SPF and DMARC `p=reject`, CAA present, **no DNSSEC**. No security.txt, no disclosure policy, no bug bounty and no trust centre were found, so no `Security`, `VulnerabilityDisclosure` or `TrustCenter` artifact was written.
-- [`llms/zolo-llms.txt`](llms/zolo-llms.txt) — generated (Zolo publishes none), telling an agent plainly that there is nothing to sign up for and pointing it at CREA's DDF or a member board feed instead.
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.zolo.ca/)
+- [Support](https://www.zolo.ca/contact_us.php)
 - [Blog](https://www.zolo.ca/blog)
-- [Blog RSS](https://www.zolo.ca/blog/feed/)
-- [New listings RSS feed](https://www.zolo.ca/rss_new_listings.php)
-- [Sitemap index](https://www.zolo.ca/site_map_index_https.php)
-- [Contact / Support](https://www.zolo.ca/contact_us.php)
-- [Careers](https://www.zolo.ca/careers)
-- [Terms of Service](https://www.zolo.ca/legal-terms)
-- [Privacy Policy](https://www.zolo.ca/legal-privacy)
-- [Privacy & Security Centre](https://www.zolo.ca/legal)
-- [iOS app](https://apps.apple.com/ca/app/zolo-real-estate-apartments/id898656833) — [Android app](https://play.google.com/store/apps/details?id=com.ols.zolo)
-- [LinkedIn](https://www.linkedin.com/company/zolocanada) · [Facebook](https://www.facebook.com/zolocanada) · [X](https://www.twitter.com/zolocanada) · [Instagram](https://www.instagram.com/zolocanada) · [YouTube](https://www.youtube.com/c/ZoloCanada) · [Pinterest](https://www.pinterest.com/zolocanada)
+- [Terms of service](https://www.zolo.ca/legal-terms)
+- [Privacy policy](https://www.zolo.ca/legal-privacy)
 
-## Maintainers
+## API Evangelist rating
 
-- **Kin Lane** — kin@apievangelist.com
+**Kin Score 13.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 6.7 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 18.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/zolo/](https://apis.io/providers/zolo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Zolo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/zolo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
